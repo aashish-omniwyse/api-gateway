@@ -1,0 +1,36 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.7.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.camel.sql.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.apache.camel:camel-spring-boot-starter:2.19.3')
+	compile('org.apache.camel:camel-core:2.19.3')
+	compile('org.apache.camel:camel-spring:2.19.3')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.apache.camel:camel-jetty:2.19.3')
+	testCompile('org.apache.camel:camel-http4:2.19.3')
+}
